@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json ./ 
 COPY package-lock.json* ./ 
 
-RUN corepack enable && pnpm i --frozen-lockfile || npm ci
+RUN corepack enable && npm i --frozen-lockfile || npm ci
 
 FROM node:20-alpine AS builder
 WORKDIR /app
