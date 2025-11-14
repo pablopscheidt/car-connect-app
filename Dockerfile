@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json ./ 
 COPY package-lock.json* ./ 
 
-RUN npm ci
+RUN npm ci && npm install --no-save --platform=linuxmusl --arch=x64 lightningcss
 
 FROM node:20 AS builder
 WORKDIR /app
