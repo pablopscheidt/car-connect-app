@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json ./ 
 COPY package-lock.json* ./ 
 
-RUN npm ci && npm install --no-save --platform=linuxmusl --arch=x64 lightningcss
+RUN npm i && npm ci
 
 FROM node:lts-alpine AS builder
 WORKDIR /app
