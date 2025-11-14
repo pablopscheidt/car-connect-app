@@ -3,14 +3,11 @@
 import React from 'react'
 import { useAuth } from '@/hooks/useAuth'
 
-type LoginPageProps = {
-  searchParams?: {
-    redirect?: string
-  }
-}
-
-export default function LoginPage({ searchParams }: LoginPageProps) {
-  const redirect = searchParams?.redirect || '/admin'
+export default function LoginPage() {
+  const searchParams = new URLSearchParams(
+    typeof window !== 'undefined' ? window.location.search : '',
+  )
+  const redirect = searchParams.get('redirect') || '/admin'
   const { login, isLoggingIn, loginError } = useAuth(redirect)
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
