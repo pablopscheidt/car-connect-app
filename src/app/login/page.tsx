@@ -3,8 +3,15 @@
 import React from 'react'
 import { useAuth } from '@/hooks/useAuth'
 
-export default function LoginPage() {
-  const { login, isLoggingIn, loginError } = useAuth()
+type LoginPageProps = {
+  searchParams?: {
+    redirect?: string
+  }
+}
+
+export default function LoginPage({ searchParams }: LoginPageProps) {
+  const redirect = searchParams?.redirect || '/admin'
+  const { login, isLoggingIn, loginError } = useAuth(redirect)
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [formError, setFormError] = React.useState<string | null>(null)

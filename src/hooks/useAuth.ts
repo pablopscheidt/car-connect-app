@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useMutation } from '@tanstack/react-query'
 import { apiAuth } from '@/lib/api'
 import type { LoginResponse } from '@/types/auth'
@@ -10,9 +10,8 @@ export type LoginPayload = {
   password: string
 }
 
-export function useAuth() {
+export function useAuth(defaultRedirect = '/admin') {
   const router = useRouter()
-  const searchParams = useSearchParams()
 
   const loginMutation = useMutation({
     mutationFn: async ({ email, password }: LoginPayload) => {
@@ -20,14 +19,15 @@ export function useAuth() {
         email,
         password,
       })
+
       if (typeof window !== 'undefined') {
         localStorage.setItem('access_token', data.access_token)
       }
+
       return data
     },
     onSuccess: () => {
-      const redirect = searchParams.get('redirect') || '/admin'
-      router.push(redirect)
+      router.push(defaultRedirect)
     },
   })
 
