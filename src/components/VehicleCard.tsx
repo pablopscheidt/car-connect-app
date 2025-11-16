@@ -43,6 +43,7 @@ export default function VehicleCard(props: VehicleCardProps) {
             width={400}
             height={300}
             loading="lazy"
+            unoptimized
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-gray-400">

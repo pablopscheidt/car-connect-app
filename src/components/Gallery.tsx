@@ -28,6 +28,7 @@ export default function Gallery({ images, title }: GalleryProps) {
           width={400}
           height={300}
           loading="eager"
+          unoptimized
         />
       </div>
 
@@ -46,6 +47,7 @@ export default function Gallery({ images, title }: GalleryProps) {
               width={400}
               height={300}
               loading="lazy"
+              unoptimized
             />
           </button>
         ))}
