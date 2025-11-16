@@ -97,6 +97,7 @@ function SortableImageCard({
           width={400}
           height={300}
           loading="lazy"
+          unoptimized
         />
         {img.isCover && (
           <span className="absolute left-2 top-2 rounded bg-black/70 px-2 py-0.5 text-[10px] font-medium text-white">
