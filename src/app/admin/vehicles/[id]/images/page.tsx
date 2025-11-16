@@ -87,7 +87,7 @@ function SortableImageCard({
         title="Arraste para reordenar"
       >
         <Image
-          src={'http://localhost:4000' + img.url}
+          src={'https://api.car-connect.pablopscheidt.dev' + img.url}
           alt=""
           className="h-full w-full object-cover"
           width={400}
