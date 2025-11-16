@@ -73,6 +73,10 @@ function SortableImageCard({
     opacity: isDragging ? 0.95 : 1,
   }
 
+  const mountImageUrl = (url: string) => {
+    return 'https://api.car-connect.pablopscheidt.dev' + url
+  }
+
   return (
     <li
       ref={setNodeRef}
@@ -87,7 +91,7 @@ function SortableImageCard({
         title="Arraste para reordenar"
       >
         <Image
-          src={'https://api.car-connect.pablopscheidt.dev' + img.url}
+          src={mountImageUrl(img.url)}
           alt=""
           className="h-full w-full object-cover"
           width={400}

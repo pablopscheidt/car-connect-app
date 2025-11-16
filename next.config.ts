@@ -3,7 +3,13 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ['api.car-connect.pablopscheidt.dev'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.car-connect.pablopscheidt.dev',
+        pathname: '/uploads/**',
+      },
+    ],
   },
   experimental: {
     optimizeCss: false,
